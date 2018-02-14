@@ -1,6 +1,6 @@
 <?php
 
-interface Name
+interface Named
 {
     public function getName();
 }

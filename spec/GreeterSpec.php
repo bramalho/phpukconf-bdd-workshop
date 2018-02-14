@@ -8,6 +8,11 @@ use Prophecy\Argument;
 
 class GreeterSpec extends ObjectBehavior
 {
+    function let(\Named $person, \Logger $logger)
+    {
+        $this->beConstructedWith($logger);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType(Greeter::class);
@@ -18,10 +23,21 @@ class GreeterSpec extends ObjectBehavior
         $this->greet()->shouldReturn('Hello');
     }
 
-    function it_should_greet_a_person_by_name(\Name $person)
+    function it_should_greet_a_person_by_name(\Named $person)
     {
         $person->getName()->willReturn('Bob');
 
         $this->greet($person)->shouldReturn('Hello Bob');
+    }
+
+    function it_should_log_all_names_logged(\Named $person, \Logger $logger)
+    {
+        //$this->beConstructedWith($logger);
+
+        $person->getName()->willReturn('Bob');
+
+        $this->greet($person);
+
+        //$this->logger('Bob')->shouldHaveBeedCalled();
     }
 }
