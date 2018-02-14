@@ -1,0 +1,14 @@
+{
+  "name": "phpukconf-bdd-workshop",
+  "description": "PHP UK Conf - BDD Workshop",
+  "type": "library",
+  "license": "proprietary",
+  "require-dev": {
+    "phpspec/phpspec": "^4.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "": "src"
+    }
+  }
+}
