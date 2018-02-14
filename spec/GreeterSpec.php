@@ -17,4 +17,11 @@ class GreeterSpec extends ObjectBehavior
     {
         $this->greet()->shouldReturn('Hello');
     }
+
+    function it_should_greet_a_person_by_name(\Name $person)
+    {
+        $person->getName()->willReturn('Bob');
+
+        $this->greet($person)->shouldReturn('Hello Bob');
+    }
 }

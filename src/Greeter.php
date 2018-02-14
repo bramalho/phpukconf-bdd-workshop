@@ -2,8 +2,8 @@
 
 class Greeter
 {
-    public function greet()
+    public function greet($person = null)
     {
-        return 'Hello';
+        return 'Hello' . ($person ? ' ' . $person->getName() : '');
     }
 }
