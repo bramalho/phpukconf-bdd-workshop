@@ -12,4 +12,9 @@ class GreeterSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Greeter::class);
     }
+
+    function it_should_say_hello()
+    {
+        $this->greet()->shouldReturn('Hello');
+    }
 }
